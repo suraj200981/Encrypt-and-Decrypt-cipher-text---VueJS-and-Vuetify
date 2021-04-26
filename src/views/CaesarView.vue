@@ -1,18 +1,25 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
     <CaesarCipher />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import CaesarCipher from '@/components/CaesarCipher.vue'
+import CaesarCipher from "@/components/CaesarCipher.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    CaesarCipher
-  }
-}
+    CaesarCipher,
+  },
+};
 </script>
