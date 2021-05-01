@@ -8,7 +8,12 @@
     <br />
     <br />
     <br />
+    <v-container fill-height fluid>
+  <v-row align="center"
+      justify="center">
     <CaesarCipher />
+  </v-row>
+    </v-container>
   </div>
 </template>
 
