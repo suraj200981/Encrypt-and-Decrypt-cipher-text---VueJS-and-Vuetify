@@ -7,7 +7,6 @@
           name="input-7-4"
           label="Plain text"
           v-model="plainText"
-          :value="newStringDecrypted"
           style="width: 1000px"
         ></v-textarea>
         <v-col class="d-flex" cols="12" sm="6">
@@ -21,8 +20,7 @@
           background-color="amber lighten-4"
           color="orange orange-darken-4"
           label="Cipher text"
-          :value="newStringEncrypted"
-          v-model="cipherText"
+          v-model="newStringEncrypted"
           style="width: 1000px"
         ></v-textarea>
         <v-col class="d-flex" cols="12" sm="6">
@@ -40,7 +38,7 @@ export default {
 
   data: () => ({
     plainText: "",
-    cipherText:"",
+    cipherText: "",
     newStringEncrypted: "",
     newStringDecrypted: "",
     encryptKey: 3,
@@ -48,8 +46,6 @@ export default {
 
   methods: {
     encryptCipher() {
-            this.cipherText = "";
-
       // Make an output variable
       var output = "";
 
@@ -80,45 +76,37 @@ export default {
 
       // All done!
       this.newStringEncrypted = output;
+      console.log(this.newString);
     },
-    decryptCipher(){
-      this.plainText="";
+   decryptCipher(){
         var decryptKey= this.encryptKey
-
         decryptKey =-Math.abs(decryptKey);
-
       // Make an output variable
       var output = "";
-
       // Go through each character
-      for (var i = 0; i < this.cipherText.length; i++) {
+      for (var i = 0; i < this.newStringEncrypted.length; i++) {
         // Get the character we'll be appending
-        var c = this.cipherText[i];
-
+        var c = this.newStringEncrypted[i];
         // check letter with regular expression
         if (c.match(/[a-z]/i)) {
           // Get its char code ascii
-          var code = this.cipherText.charCodeAt(i);
-
+          var code = this.newStringEncrypted.charCodeAt(i);
           // Uppercase letters
           if (code >= 65 && code <= 90) {
             c = String.fromCharCode(((code - 65 + decryptKey+26) % 26) + 65);
           }
-
           // Lowercase letters
           else if (code >= 97 && code <= 122) {
             c = String.fromCharCode(((code - 97 + decryptKey+26) % 26) + 97);
           }
         }
-
         // Append
         output += c;
         console.log(output);
       }
-
       // All done!
-      this.newStringDecrypted = output;
-      console.log(this.newStringDecrypted)
+      this.plainText = output;
+      console.log(this.plainText);
     }
   },
 };
