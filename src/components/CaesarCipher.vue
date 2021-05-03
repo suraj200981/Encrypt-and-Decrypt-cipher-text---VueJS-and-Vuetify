@@ -78,26 +78,28 @@ export default {
       this.newStringEncrypted = output;
       console.log(this.newString);
     },
-   decryptCipher(){
-        var decryptKey= this.encryptKey
-        decryptKey =-Math.abs(decryptKey);
+    decryptCipher() {
+      var decryptKey = this.encryptKey;
+      decryptKey = -Math.abs(decryptKey);
       // Make an output variable
       var output = "";
       // Go through each character
       for (var i = 0; i < this.newStringEncrypted.length; i++) {
-        // Get the character we'll be appending
+        // Get each char
         var c = this.newStringEncrypted[i];
         // check letter with regular expression
         if (c.match(/[a-z]/i)) {
-          // Get its char code ascii
+          // Get its char code ascii at each letter
           var code = this.newStringEncrypted.charCodeAt(i);
-          // Uppercase letters
-          if (code >= 65 && code <= 90) {
-            c = String.fromCharCode(((code - 65 + decryptKey+26) % 26) + 65);
+          // shifting the values with an uppercase letters. Value cant be higher then Z.
+          // reversing the shift inital shift val by adding 26 before the wrap around
+          if (code <= 90) {
+            c = String.fromCharCode(((code - 65 + decryptKey + 26) % 26) + 65); //the + A coverts the int value back to alphabet value.
           }
-          // Lowercase letters
-          else if (code >= 97 && code <= 122) {
-            c = String.fromCharCode(((code - 97 + decryptKey+26) % 26) + 97);
+          // shifting the values with an uppercase letters. Value cant be higher then z.
+          // reversing the shift inital shift val by adding 26 before the wrap around
+          else if (code <= 122) {
+            c = String.fromCharCode(((code - 97 + decryptKey + 26) % 26) + 97); //the + a coverts the int value back to alphabet value.
           }
         }
         // Append
@@ -107,7 +109,7 @@ export default {
       // All done!
       this.plainText = output;
       console.log(this.plainText);
-    }
+    },
   },
 };
 </script>
