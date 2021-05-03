@@ -8,28 +8,9 @@
             gradient="to top right, rgba(100,115,201,.7), rgba(25,32,72,.7)"
           ></v-img>
         </template>
-
-        <v-app-bar-nav-icon></v-app-bar-nav-icon>
-
         <v-toolbar-title>Cipher Encryption Decryption App</v-toolbar-title>
 
         <v-spacer></v-spacer>
-
-        <v-btn icon>
-          <v-icon>mdi-magnify</v-icon>
-        </v-btn>
-
-        <v-btn icon>
-          <v-icon>mdi-heart</v-icon>
-        </v-btn>
-
-        <v-menu bottom left>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn icon color="yellow" v-bind="attrs" v-on="on">
-              <v-icon>mdi-dots-vertical</v-icon>
-            </v-btn>
-          </template>
-        </v-menu>
 
         <template v-slot:extension>
           <v-tabs align-with-title>
